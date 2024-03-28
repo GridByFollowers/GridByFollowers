@@ -4,108 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BYFOLLOWERS</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f5f5f5;
-    }
-    #navbar {
-        background-color: #f8f9fa;
-        color: #333;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    #navbar h1 {
-        margin: 0;
-        font-size: 24px;
-    }
-    #navbar em {
-        font-weight: bold;
-        color: #333;
-    }
-    #search-box {
-        display: flex;
-        align-items: center;
-    }
-    #search {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-    }
-    #search-btn {
-        padding: 8px 16px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    #search-btn:hover {
-        background-color: #0056b3;
-    }
-    #container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        box-sizing: border-box;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-    }
-    h1 {
-        font-size: 24px;
-        color: #333;
-    }
-    #image-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    #image-container img {
-        width: 100px;
-        height: 100px;
-        margin: 5px;
-        border-radius: 8px;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
-    #image-container img:hover {
-        transform: scale(1.1);
-    }
-
-    /* Responsive Styles */
-    @media only screen and (max-width: 600px) {
-        #navbar {
-            padding: 10px;
-        }
-        #navbar h1 {
-            font-size: 20px;
-        }
-        #search-box {
-            flex-direction: column;
-            align-items: stretch;
-        }
-        #search {
-            margin-right: 0;
-            margin-bottom: 10px;
-        }
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <div id="navbar">
-    <h1><em>BY</em>FOLLOWERS</h1>
+    <h1><span class="bold">BY</span>FOLLOWERS</h1>
     <div id="search-box">
-        <input type="text" id="search" name="search" placeholder="User ID">
+        <input type="text" id="search" name="search" placeholder="Search User ID">
         <button id="search-btn" onclick="searchImage()">Search</button>
     </div>
 </div>
@@ -114,64 +19,6 @@
     <div id="image-container"></div>
 </div>
 
-<script>
-    // Function to fetch image IDs and display random images
-    function fetchImages() {
-        var imageContainer = document.getElementById("image-container");
-        imageContainer.innerHTML = ""; // Clear existing images
-
-        // Fetch images from the 'images' folder
-        fetch('images/image-list.json')
-        .then(response => response.json())
-        .then(data => {
-            // Shuffle image IDs randomly
-            var shuffledIds = shuffleArray(data.imageIds);
-
-            // Display random images
-            shuffledIds.forEach(imageId => {
-                const imageUrl = 'images/' + imageId + '.jpg';
-                const imgElement = document.createElement("img");
-                imgElement.src = imageUrl;
-                imgElement.alt = imageId;
-                imgElement.title = imageId; // Display image ID on hover
-                imgElement.addEventListener('click', function() {
-                    window.open('https://instagram.com/' + imageId, '_blank');
-                });
-                imageContainer.appendChild(imgElement);
-            });
-        })
-        .catch(error => console.error('Error fetching images:', error));
-    }
-
-    // Function to shuffle array randomly
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    // Function to search for an image
-    function searchImage() {
-        var searchInput = document.getElementById("search").value.toLowerCase();
-        var imageElements = document.querySelectorAll('#image-container img');
-
-        // Hide all images
-        imageElements.forEach(img => {
-            img.style.display = 'none';
-        });
-
-        // Show images matching the searched ID
-        imageElements.forEach(img => {
-            if (img.alt.toLowerCase() === searchInput) {
-                img.style.display = 'block';
-            }
-        });
-    }
-
-    // Call fetchImages function on page load
-    fetchImages();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
