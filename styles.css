@@ -25,6 +25,15 @@ body {
     color: inherit;
 }
 
+#follow-us {
+    display: flex;
+    align-items: center;
+}
+
+#follow-us span {
+    margin-right: 10px;
+}
+
 #instagram-icon {
     height: 24px;
 }
