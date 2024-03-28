@@ -61,6 +61,7 @@
         margin: 5px;
         border-radius: 8px;
         transition: transform 0.3s ease;
+        cursor: pointer;
     }
     #image-container img:hover {
         transform: scale(1.1);
@@ -107,6 +108,8 @@
                 const imgElement = document.createElement("img");
                 imgElement.src = imageUrl;
                 imgElement.alt = imageId;
+                imgElement.title = imageId; // Display image ID on hover
+                imgElement.setAttribute('onclick', `window.open('https://instagram.com/${imageId}', '_blank')`); // Open link in new tab
                 imageContainer.appendChild(imgElement);
             });
         })
@@ -123,7 +126,7 @@
         .then(data => {
             // Check if the searched image ID exists
             if (data.imageIds.includes(searchInput)) {
-                window.location.href = 'images/' + searchInput + '.jpg';
+                window.open(`https://instagram.com/${searchInput}`, '_blank');
             } else {
                 alert("Image not found!");
             }
