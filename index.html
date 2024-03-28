@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BYFOLLOWERS - Random Image Viewer</title>
+<title>BYFOLLOWERS</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -18,17 +18,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: background-color 0.3s ease;
     }
     #navbar h1 {
         margin: 0;
         font-size: 24px;
     }
-    #navbar img {
-        max-height: 40px;
-        margin-right: 10px;
+    #navbar em {
+        font-weight: bold;
+        color: #fff;
     }
     #search-box {
-        margin-top: 20px;
         display: flex;
         align-items: center;
     }
@@ -86,7 +86,7 @@
 </head>
 <body>
 <div id="navbar">
-    <h1><img src="logo.png" alt="BYFOLLOWERS Logo">BYFOLLOWERS</h1>
+    <h1><em>BY</em>FOLLOWERS</h1>
     <div id="search-box">
         <input type="text" id="search" name="search" placeholder="Search Image ID">
         <button id="search-btn" onclick="searchImage()">Search</button>
