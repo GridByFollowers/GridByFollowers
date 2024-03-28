@@ -53,5 +53,10 @@ function searchImage() {
     });
 }
 
+// Function to refresh page on clicking title in nav bar
+function refreshPage() {
+    location.reload();
+}
+
 // Call fetchImages function on page load
 fetchImages();
