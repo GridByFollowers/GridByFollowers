@@ -3,13 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Image Viewer</title>
+<title>BYFOLLOWERS - Random Image Viewer</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f5f5f5;
+    }
+    #navbar {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #navbar h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    #navbar img {
+        max-height: 40px;
+        margin-right: 10px;
+    }
+    #search-box {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+    }
+    #search {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    #search-btn {
+        padding: 8px 16px;
+        background-color: #fff;
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #search-btn:hover {
+        background-color: #007bff;
+        color: #fff;
     }
     #container {
         max-width: 800px;
@@ -19,35 +59,11 @@
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
     }
     h1 {
-        margin-top: 0;
         font-size: 24px;
         color: #333;
-    }
-    #search-box {
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-    }
-    #search {
-        flex: 1;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-    }
-    #search-btn {
-        padding: 8px 16px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    #search-btn:hover {
-        background-color: #0056b3;
     }
     #image-container {
         display: flex;
@@ -69,12 +85,15 @@
 </style>
 </head>
 <body>
-<div id="container">
-    <h1>Random Image Viewer</h1>
+<div id="navbar">
+    <h1><img src="logo.png" alt="BYFOLLOWERS Logo">BYFOLLOWERS</h1>
     <div id="search-box">
         <input type="text" id="search" name="search" placeholder="Search Image ID">
         <button id="search-btn" onclick="searchImage()">Search</button>
     </div>
+</div>
+
+<div id="container">
     <div id="image-container"></div>
 </div>
 
