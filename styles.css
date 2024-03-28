@@ -24,6 +24,10 @@ body {
     font-weight: bold;
 }
 
+#navbar .light {
+    font-weight: lighter;
+}
+
 #search-box {
     display: flex;
     align-items: center;
