@@ -111,3 +111,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#navbar img {
+    height: 40px; /* Adjust the height as needed */
+}
+
